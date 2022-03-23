@@ -54,6 +54,37 @@ async def main():
     listeners = asyncio.gather(
         execute_command_listener(device_client, method_name="Reboot", user_command_handler=handlers.reboot_handler), )
 
+    # Definizione funzione per invio dati di telemetria
+    async def send_telemetry():
+        print("Sending telemetry from various components")
+
+        while True:
+            # Temperatura (random)
+            thermostat['temperature'] = random.randrange(10, 40)
+            thermostat['humidity'] = random.randrange(0, 100)
+            thermostat_msg = {"Temperature": thermostat['temperature'],
+                              "Humidity": thermostat['humidity']
+                              }
+            await send_telemetry_from_track_controller(
+                device_client, thermostat_msg, thermostat['name']
+            )
+
+            # Gps (università)
+            gps['lat'] = 40.33384234223706
+            gps['lon'] = 18.114342493867486
+            gps['alt'] = 51.002685546875
+            gps_msg = {"Location": {
+                                    "lat": gps['lat'],
+                                    "lon": gps['lon'],
+                                    "alt": gps['alt'],
+                                    }
+                        }
+            await send_telemetry_from_track_controller(
+                device_client, gps_msg, gps['name']
+            )
+
+    send_telemetry_task = asyncio.ensure_future(send_telemetry())
+
 # ALTRE FUNZIONI
 # Provisioning dispositivo
 async def provision_device(provisioning_host, scope, registration_id, symmetric_key):
