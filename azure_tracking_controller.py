@@ -9,6 +9,7 @@ from azure.iot.device.aio import ProvisioningDeviceClient
 import pnp_helper
 import handlers
 
+
 # VARIABILI PER LA CONNESSIONE CON AZURE (INPUT)
 security_type = "DPS"
 id_scope = "0ne005457FD"
@@ -16,13 +17,15 @@ device_key = "4eRyI/FGYlEoirEXRU/Z3Jyz5BqNG7ldkvJLy7OXW2g="
 device_id = "2kv7cqlfibe"
 dps_endpoint = "global.azure-devices-provisioning.net"
 
+
 # PROPRIETA' SENSORE
 # ID
-identifier = 001
+identifier = "Test"
 # Temperatura
 thermostat = {'name': "Thermostat", 'temperature': 0, 'humidity': 0}
 # Gps
 gps = {'name': "Gps", 'lat': 0.0, 'lon': 0.0, 'alt': 0.0}
+
 
 # FUNZIONE PRINCIPALE
 async def main():
@@ -68,7 +71,6 @@ async def main():
             await send_telemetry_from_track_controller(
                 device_client, thermostat_msg, thermostat['name']
             )
-
             # Gps (università)
             gps['lat'] = 40.33384234223706
             gps['lon'] = 18.114342493867486
@@ -99,6 +101,7 @@ async def main():
     send_telemetry_task.cancel()
     await device_client.shutdown()
 
+
 # ALTRE FUNZIONI
 # Provisioning dispositivo
 async def provision_device(provisioning_host, scope, registration_id, symmetric_key):
@@ -111,6 +114,7 @@ async def provision_device(provisioning_host, scope, registration_id, symmetric_
     return await provisioning_device_client.register()
 
 # listeners (per lettura comandi e standard input)
+# Comandi
 async def execute_command_listener(
         device_client,
         component_name=None,
@@ -148,7 +152,7 @@ async def execute_command_listener(
         except Exception:
             print("responding to the {command} command failed".format(command=method_name))
 
-
+# Standard input
 def stdin_listener():
     """
     Listener for quitting the sample
