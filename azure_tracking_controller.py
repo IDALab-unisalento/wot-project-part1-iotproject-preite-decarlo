@@ -12,3 +12,11 @@ id_scope = "0ne005457FD"
 device_key = "4eRyI/FGYlEoirEXRU/Z3Jyz5BqNG7ldkvJLy7OXW2g="
 device_id = "2kv7cqlfibe"
 dps_endpoint = "global.azure-devices-provisioning.net"
+
+# PROPRIETA' SENSORE
+# ID
+identifier = 001
+# Temperatura
+thermostat = {'name': "Thermostat", 'temperature': 0, 'humidity': 0}
+# Gps
+gps = {'name': "Gps", 'lat': 0.0, 'lon': 0.0, 'alt': 0.0}
