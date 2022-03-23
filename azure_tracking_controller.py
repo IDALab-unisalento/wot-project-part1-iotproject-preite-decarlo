@@ -144,3 +144,11 @@ def stdin_listener():
         if selection == "Q" or selection == "q":
             print("Quitting...")
             break
+
+# Invio telemetrie ad Azure
+async def send_telemetry_from_track_controller(device_client, telemetry_msg, component_name=None):
+    msg = pnp_helper.create_telemetry(telemetry_msg, component_name)
+    await device_client.send_message(msg)
+    print("Sent message")
+    print(msg)
+    await asyncio.sleep(5)
