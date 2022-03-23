@@ -85,6 +85,10 @@ async def main():
 
     send_telemetry_task = asyncio.ensure_future(send_telemetry())
 
+    # Avvio listener stdin
+    loop = asyncio.get_running_loop()
+    user_finished = loop.run_in_executor(None, stdin_listener)
+
 # ALTRE FUNZIONI
 # Provisioning dispositivo
 async def provision_device(provisioning_host, scope, registration_id, symmetric_key):
