@@ -1,0 +1,136 @@
+[
+  {
+    "@id": "dtmi:iotpreitedecarlo:TrackingController_569;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@id": "dtmi:iotpreitedecarlo:TrackingController_569:Identifier;1",
+        "@type": "Property",
+        "displayName": {
+          "en": "Identifier"
+        },
+        "name": "Identifier",
+        "schema": "string",
+        "writable": false
+      },
+      {
+        "@id": "dtmi:iotpreitedecarlo:TrackingController_569:Thermostat;1",
+        "@type": "Component",
+        "displayName": {
+          "en": "Thermostat"
+        },
+        "name": "Thermostat",
+        "schema": "dtmi:iotpreitedecarlo:TrackingController_1k8;1"
+      },
+      {
+        "@id": "dtmi:iotpreitedecarlo:TrackingController_569:Gps;1",
+        "@type": "Component",
+        "displayName": {
+          "en": "GPS"
+        },
+        "name": "Gps",
+        "schema": "dtmi:iotpreitedecarlo:TrackingController_5s7;1"
+      },
+      {
+        "@id": "dtmi:iotpreitedecarlo:TrackingController_569:Reboot;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "description": {
+          "en": "Reboots the device after waiting the number of seconds specified."
+        },
+        "displayName": {
+          "en": "Reboot"
+        },
+        "name": "Reboot",
+        "request": {
+          "@type": "CommandPayload",
+          "description": {
+            "en": "Number of seconds to wait before rebooting the device."
+          },
+          "displayName": {
+            "en": "Delay"
+          },
+          "name": "Delay",
+          "schema": "integer"
+        }
+      }
+    ],
+    "displayName": {
+      "en": "TrackingController"
+    },
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ]
+  },
+  {
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ],
+    "@id": "dtmi:iotpreitedecarlo:TrackingController_1k8;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@id": "dtmi:iotpreitedecarlo:TrackingController_1k8:Temperature;1",
+        "@type": [
+          "Telemetry",
+          "Temperature"
+        ],
+        "description": {
+          "en": "Temperature in degrees Celsius."
+        },
+        "displayName": {
+          "en": "Temperature"
+        },
+        "name": "Temperature",
+        "schema": "double",
+        "unit": "degreeCelsius"
+      },
+      {
+        "@id": "dtmi:iotpreitedecarlo:TrackingController_1k8:Humidity;1",
+        "@type": [
+          "Telemetry",
+          "Humidity"
+        ],
+        "description": {
+          "en": "Humidity in percentual"
+        },
+        "displayName": {
+          "en": "Humidity"
+        },
+        "name": "Humidity",
+        "schema": "double",
+        "unit": "percent"
+      }
+    ],
+    "displayName": {
+      "en": "Thermostat"
+    }
+  },
+  {
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ],
+    "@id": "dtmi:iotpreitedecarlo:TrackingController_5s7;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@id": "dtmi:iotpreitedecarlo:TrackingController_5s7:Location;1",
+        "@type": [
+          "Telemetry",
+          "Location"
+        ],
+        "displayName": {
+          "en": "Location"
+        },
+        "name": "Location",
+        "schema": "geopoint"
+      }
+    ],
+    "displayName": {
+      "en": "GPS"
+    }
+  }
+]

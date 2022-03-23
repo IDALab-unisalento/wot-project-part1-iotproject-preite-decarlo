@@ -1,0 +1,45 @@
+{
+  "@id": "dtmi:iotpreitedecarlo:TrackingController_1k8;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@id": "dtmi:iotpreitedecarlo:TrackingController_1k8:Temperature;1",
+      "@type": [
+        "Telemetry",
+        "Temperature"
+      ],
+      "description": {
+        "en": "Temperature in degrees Celsius."
+      },
+      "displayName": {
+        "en": "Temperature"
+      },
+      "name": "Temperature",
+      "schema": "double",
+      "unit": "degreeCelsius"
+    },
+    {
+      "@id": "dtmi:iotpreitedecarlo:TrackingController_1k8:Humidity;1",
+      "@type": [
+        "Telemetry",
+        "Humidity"
+      ],
+      "description": {
+        "en": "Humidity in percentual"
+      },
+      "displayName": {
+        "en": "Humidity"
+      },
+      "name": "Humidity",
+      "schema": "double",
+      "unit": "percent"
+    }
+  ],
+  "displayName": {
+    "en": "Thermostat"
+  },
+  "@context": [
+    "dtmi:iotcentral:context;2",
+    "dtmi:dtdl:context;2"
+  ]
+}
