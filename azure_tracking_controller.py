@@ -7,6 +7,7 @@ from azure.iot.device.aio import IoTHubDeviceClient
 from azure.iot.device.aio import ProvisioningDeviceClient
 
 import pnp_helper
+import handlers
 
 # VARIABILI PER LA CONNESSIONE CON AZURE (INPUT)
 security_type = "DPS"
@@ -48,6 +49,10 @@ async def main():
     # Scrittura proprietà di sola lettura
     properties_root = pnp_helper.create_reported_properties(Identifier=identifier)
     property_updates = asyncio.gather(device_client.patch_twin_reported_properties(properties_root), )
+
+     # Attivazione listeners
+    listeners = asyncio.gather(
+        execute_command_listener(device_client, method_name="Reboot", user_command_handler=handlers.reboot_handler), )
 
 # ALTRE FUNZIONI
 # Provisioning dispositivo
