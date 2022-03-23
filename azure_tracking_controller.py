@@ -89,6 +89,16 @@ async def main():
     loop = asyncio.get_running_loop()
     user_finished = loop.run_in_executor(None, stdin_listener)
 
+    # Chiusura client
+    await user_finished
+
+    if not listeners.done():
+        listeners.set_result("DONE")
+
+    listeners.cancel()
+    send_telemetry_task.cancel()
+    await device_client.shutdown()
+
 # ALTRE FUNZIONI
 # Provisioning dispositivo
 async def provision_device(provisioning_host, scope, registration_id, symmetric_key):
