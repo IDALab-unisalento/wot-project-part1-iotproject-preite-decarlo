@@ -172,3 +172,8 @@ async def send_telemetry_from_track_controller(device_client, telemetry_msg, com
     print("Sent message")
     print(msg)
     await asyncio.sleep(5)
+
+
+# ESECUZIONE MAIN
+if __name__ == "__main__":
+    asyncio.run(main())
