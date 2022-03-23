@@ -59,3 +59,52 @@ async def provision_device(provisioning_host, scope, registration_id, symmetric_
         symmetric_key=symmetric_key,
     )
     return await provisioning_device_client.register()
+
+# listeners (per lettura comandi e standard input)
+async def execute_command_listener(
+        device_client,
+        component_name=None,
+        method_name=None,
+        user_command_handler=None,
+        create_user_response_handler=None):
+    while True:
+        if component_name and method_name:
+            command_name = component_name + "*" + method_name
+        elif method_name:
+            command_name = method_name
+        else:
+            command_name = None
+
+        command_request = await device_client.receive_method_request(command_name)
+        print("Command request received with payload")
+        values = command_request.payload
+        print(values)
+
+        if user_command_handler:
+            await user_command_handler(values)
+        else:
+            print("No handler provided to execute")
+
+        (response_status, response_payload) = pnp_helper.create_response_payload_with_status(
+            command_request, method_name, create_user_response=create_user_response_handler
+        )
+
+        command_response = MethodResponse.create_from_method_request(
+            command_request, response_status, response_payload
+        )
+
+        try:
+            await device_client.send_method_response(command_response)
+        except Exception:
+            print("responding to the {command} command failed".format(command=method_name))
+
+
+def stdin_listener():
+    """
+    Listener for quitting the sample
+    """
+    while True:
+        selection = input("Press Q to quit\n")
+        if selection == "Q" or selection == "q":
+            print("Quitting...")
+            break
