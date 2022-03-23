@@ -9,6 +9,8 @@ from azure.iot.device.aio import ProvisioningDeviceClient
 import pnp_helper
 import handlers
 
+logging.basicConfig(level=logging.ERROR)
+
 
 # VARIABILI PER LA CONNESSIONE CON AZURE (INPUT)
 security_type = "DPS"
