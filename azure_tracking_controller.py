@@ -6,6 +6,8 @@ from azure.iot.device import MethodResponse
 from azure.iot.device.aio import IoTHubDeviceClient
 from azure.iot.device.aio import ProvisioningDeviceClient
 
+import pnp_helper
+
 # VARIABILI PER LA CONNESSIONE CON AZURE (INPUT)
 security_type = "DPS"
 id_scope = "0ne005457FD"
@@ -42,6 +44,10 @@ async def main():
         raise RuntimeError("Can't use different security type from DPS")
 
     await device_client.connect()
+
+    # Scrittura proprietà di sola lettura
+    properties_root = pnp_helper.create_reported_properties(Identifier=identifier)
+    property_updates = asyncio.gather(device_client.patch_twin_reported_properties(properties_root), )
 
 # ALTRE FUNZIONI
 # Provisioning dispositivo
