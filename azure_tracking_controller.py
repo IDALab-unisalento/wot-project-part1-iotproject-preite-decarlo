@@ -66,7 +66,7 @@ async def main():
 
         while True:
             # Temperatura e umidità
-            temperature, humidity = read_temperature_humidity(11, 4)
+            temperature, humidity = adafruit.read_temperature_humidity(11, 4)
             if temperature is not None and humidity is not None:
                 thermostat['temperature'] = temperature
                 thermostat['humidity'] = humidity
