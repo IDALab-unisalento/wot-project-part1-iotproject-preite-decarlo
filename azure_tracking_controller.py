@@ -29,9 +29,11 @@ thermostat = {'name': "Thermostat", 'temperature': 0, 'humidity': 0}
 # Gps
 gps = {'name': "Gps", 'lat': 0.0, 'lon': 0.0, 'alt': 0.0}
 
+
 # SENSORE TEMPERATURA DHT
 sensor = 11
 pin = 4
+
 
 # FUNZIONE PRINCIPALE
 async def main():
