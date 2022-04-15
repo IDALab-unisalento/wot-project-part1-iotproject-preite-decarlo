@@ -29,6 +29,9 @@ thermostat = {'name': "Thermostat", 'temperature': 0, 'humidity': 0}
 # Gps
 gps = {'name': "Gps", 'lat': 0.0, 'lon': 0.0, 'alt': 0.0}
 
+# SENSORE TEMPERATURA DHT
+sensor = 11
+pin = 4
 
 # FUNZIONE PRINCIPALE
 async def main():
@@ -66,7 +69,7 @@ async def main():
 
         while True:
             # Temperatura e umidità
-            temperature, humidity = adafruit.read_temperature_humidity(11, 4)
+            temperature, humidity = adafruit.read_temperature_humidity(sensor, pin)
             if temperature is not None and humidity is not None:
                 thermostat['temperature'] = temperature
                 thermostat['humidity'] = humidity
