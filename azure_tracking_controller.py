@@ -20,7 +20,7 @@ device_id = "257gga9780e"
 dps_endpoint = "global.azure-devices-provisioning.net"
 
 
-# PROPRIETA' SENSORE
+# PROPRIETA' DISPOSITIVO
 # ID
 identifier = "Test"
 # Temperatura
@@ -64,7 +64,7 @@ async def main():
         print("Sending telemetry from various components")
 
         while True:
-            # Temperatura (random)
+            # Temperatura e umidità (random)
             thermostat['temperature'] = random.randrange(10, 40)
             thermostat['humidity'] = random.randrange(0, 100)
             thermostat_msg = {"Temperature": thermostat['temperature'],
@@ -73,7 +73,7 @@ async def main():
             await send_telemetry_from_track_controller(
                 device_client, thermostat_msg, thermostat['name']
             )
-            # Gps (università)
+            # Gps (Università)
             gps['lat'] = 40.33384234223706
             gps['lon'] = 18.114342493867486
             gps['alt'] = 51.002685546875
