@@ -9,7 +9,7 @@ Per il corretto funzionamento è necessario aver installato sul dispositivo:
 Inoltre è necessario aver creato correttamente un'applicazione Azure IoT Central che abbia il modello di dispositivo "Tracking controller" definito correttamente (come definito dal file [Tracking Controller.json](Modelli%20Azure/Tracking%20Controller.json)) e aver creato un dispositivo da associare al dispositivo.
 
 ## Configurazioni
-Per utiizzare lo script è necessario modificare alcune variabili nel file [azure_tracking_controller.py](azure_tracking_controller.py)che sono l'input del programma:
+Per utiizzare lo script è necessario modificare alcune variabili nel file [azure_tracking_controller.py](azure_tracking_controller.py) che sono l'input del programma:
 - [Variabili connessione Azure](https://github.com/IDALab-unisalento/wot-project-part1-iotproject-preite-decarlo/blob/77245edcce3badb07878bc312a039b8f3c645c20/azure_tracking_controller.py#L16): fornire i dati di connessione reperibili dalla schermata di connessione dispositivo dall'applicazione Azure IoT Central;
 - [Variabili del sensore di temperatura DHT](https://github.com/IDALab-unisalento/wot-project-part1-iotproject-preite-decarlo/blob/77245edcce3badb07878bc312a039b8f3c645c20/azure_tracking_controller.py#L33): fornire il modello del sensore DHT utilizzato ed il pin GPIO al quale è stato collegato sul raspberry.
 
