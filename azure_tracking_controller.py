@@ -8,6 +8,7 @@ from azure.iot.device.aio import ProvisioningDeviceClient
 
 import pnp_helper
 import handlers
+import adafruit
 
 logging.basicConfig(level=logging.ERROR)
 
@@ -64,15 +65,17 @@ async def main():
         print("Sending telemetry from various components")
 
         while True:
-            # Temperatura e umidità (random)
-            thermostat['temperature'] = random.randrange(10, 40)
-            thermostat['humidity'] = random.randrange(0, 100)
-            thermostat_msg = {"Temperature": thermostat['temperature'],
-                              "Humidity": thermostat['humidity']
-                              }
-            await send_telemetry_from_track_controller(
-                device_client, thermostat_msg, thermostat['name']
-            )
+            # Temperatura e umidità
+            temperature, humidity = read_temperature_humidity(11, 4)
+            if temperature is not None and humidity is not None:
+                thermostat['temperature'] = temperature
+                thermostat['humidity'] = humidity
+                thermostat_msg = {"Temperature": thermostat['temperature'],
+                                  "Humidity": thermostat['humidity']
+                                  }
+                await send_telemetry_from_track_controller(
+                    device_client, thermostat_msg, thermostat['name']
+                )
             # Gps (Università)
             gps['lat'] = 40.33384234223706
             gps['lon'] = 18.114342493867486
