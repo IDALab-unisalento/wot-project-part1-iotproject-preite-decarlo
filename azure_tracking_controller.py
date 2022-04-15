@@ -101,9 +101,10 @@ async def main():
     loop = asyncio.get_running_loop()
     user_finished = loop.run_in_executor(None, stdin_listener)
 
-    # Chiusura client
+    # Attesa richiesta sospensione programma
     await user_finished
 
+    # Chiusura client
     if not listeners.done():
         listeners.set_result("DONE")
 
@@ -164,9 +165,6 @@ async def execute_command_listener(
 
 # Standard input
 def stdin_listener():
-    """
-    Listener for quitting the sample
-    """
     while True:
         selection = input("Press Q to quit\n")
         if selection == "Q" or selection == "q":
