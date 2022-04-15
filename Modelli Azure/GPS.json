@@ -1,0 +1,28 @@
+{
+  "@id": "dtmi:iotpreitedecarlo:TrackingController_5s7;1",
+  "@type": "Interface",
+  "contents": [
+    {
+      "@id": "dtmi:iotpreitedecarlo:TrackingController_5s7:Location;1",
+      "@type": [
+        "Telemetry",
+        "Location"
+      ],
+      "description": {
+        "en": "Posizione del dispositivo in coordinate geografiche"
+      },
+      "displayName": {
+        "en": "Posizione"
+      },
+      "name": "Location",
+      "schema": "geopoint"
+    }
+  ],
+  "displayName": {
+    "en": "GPS"
+  },
+  "@context": [
+    "dtmi:iotcentral:context;2",
+    "dtmi:dtdl:context;2"
+  ]
+}
