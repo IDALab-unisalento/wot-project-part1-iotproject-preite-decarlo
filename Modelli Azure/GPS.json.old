@@ -8,11 +8,8 @@
         "Telemetry",
         "Location"
       ],
-      "description": {
-        "en": "Posizione del dispositivo in coordinate geografiche"
-      },
       "displayName": {
-        "en": "Posizione"
+        "en": "Location"
       },
       "name": "Location",
       "schema": "geopoint"
