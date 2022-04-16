@@ -16,8 +16,8 @@ logging.basicConfig(level=logging.ERROR)
 # VARIABILI PER LA CONNESSIONE CON AZURE (INPUT)
 security_type = "DPS"
 id_scope = "0ne00595EB7"
-device_key = "u4RcdA8gqr12Mq3xsNSjOYTMEpMzMlcfzGVL9ka2LUw="
-device_id = "257gga9780e"
+device_key = "ubJBBv4UaUgVfTkPHHK1o89qYNxwg2JpNbCkegjSTPc="
+device_id = "r0bz0648df"
 dps_endpoint = "global.azure-devices-provisioning.net"
 
 
