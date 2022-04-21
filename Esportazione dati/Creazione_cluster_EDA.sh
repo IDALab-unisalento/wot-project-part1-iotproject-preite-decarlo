@@ -1,9 +1,9 @@
 # VARIABILI INPUT
-clustername="preitedecarlocluster"
+clustername="preiteclustertest"
 centralurlprefix="iot-preite-decarlo-tracciabilita"
-databasename="preitedecarlodb"
+databasename="preitedbtest"
 location="westeurope"
-resourcegroup="Archiviazione"
+resourcegroup="test"
 
 # ESTENSIONE NECESSARIA PER ESECUZIONE
 echo "Aggiunta estensione kusto"
