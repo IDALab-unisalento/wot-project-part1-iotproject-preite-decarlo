@@ -1,0 +1,8 @@
+﻿.create table trackingcontroller (
+  Timestamp:datetime,
+  IdDispositivoAzure:string,
+  IdDispositivoFisico:string,
+  NomeDispositivo:string,
+  Temperatura:real,
+  Umidita:real
+);
