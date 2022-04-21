@@ -29,7 +29,6 @@ az kusto database create --cluster-name $clustername \
     --read-write-database location=$location soft-delete-period=P365D hot-cache-period=P31D \
     --resource-group $resourcegroup
 
-
 # CREAZIONE E ASSEGNAZIONE IDENTITA' GESTITA
 # Creazione
 echo "Creazione identità gestita"
