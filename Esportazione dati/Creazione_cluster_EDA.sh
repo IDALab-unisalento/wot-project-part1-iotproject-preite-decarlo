@@ -6,8 +6,9 @@ location="westeurope"
 resourcegroup="test"
 
 # ESTENSIONE NECESSARIA PER ESECUZIONE
-echo "Aggiunta estensione kusto"
+echo "Aggiunta estensioni necessarie"
 az extension add -n kusto
+az extension add -n azure-iot
 
 # CREAZIONE GRUPPO DI RISORSE PER ARCHIVIAZIONE
 echo "Creazione gruppo di risorse"
@@ -35,7 +36,7 @@ echo "Creazione identità gestita"
 MI_JSON=$(az iot central app identity assign --name $centralurlprefix \
     --resource-group IOTC --system-assigned)
 
-## Assegnazione
+# Assegnazione
 echo "Assegnazione identità gestita"
 az kusto database-principal-assignment create --cluster-name $clustername \
                                               --database-name $databasename \
