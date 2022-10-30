@@ -26,6 +26,7 @@ Per fermare l'esecuzione digitare `q` oppure `Q` e dare invio.
 ## File nel repository
 Sono presenti i seguenti file:
 - [Modelli Azure](Modelli%20Azure): cartella contenente i modelli in formato DTDL da importare nell'applicazione Azure IoT Central per creare correttamente il modello del dispositivo con il quale interagire;
+- [Esportazione dati](Esportazione%20dati): cartella contenente file utili per l'esportazione dei dati da Azure IoT Central a Azure Data Explorer;
 - [azure_tracking_controller.py](azure_tracking_controller.py): script principale utilizzato per eseguire tutte le operazioni necessarie per la comunicazione con l'applicazione cloud di Azure IoT Central;
 - [adafruit.py](adafruit.py): utilizzato per esporre la funzione “read_temperature_humidity” della libreria Adafruit, necessaria per la lettura delle misure effettuate dal sensore di temperatura utilizzato;
 - [handlers.py](handlers.py): utilizzato per raccogliere le funzioni utilizzate per la gestione della ricezione dei comandi dall’applicazione cloud;

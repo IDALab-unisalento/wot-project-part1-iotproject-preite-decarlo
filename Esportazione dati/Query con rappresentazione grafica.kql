@@ -1,0 +1,4 @@
+﻿['trackingcontroller'] 
+    | take 10
+    | project Timestamp, IdDispositivoFisico, Temperatura, Umidita
+    | render timechart 
